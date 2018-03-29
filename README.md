@@ -25,6 +25,6 @@ The multiple scatterplots will show the relationships between life expectancy in
 ## Data Visualization
 We will create a scatterplot with the y-axis being the average life expectancy. The x-axis will vary between different factors that the user will be able to choose from. After choosing the x-axis, we will use D3 to plot the points on the scatterplot and create a line of best fit. In addition, we will calculate the linear regression in order to figure out the correlation between the graphs. By hovering over each point on the scatterplot, the user will be show that point's state, GDP, and whatever other factor is being compared. Given enough time, we may also incorperate time into this and include a scroll bar that takes you through years of data showing the growth of life expectancy and other factors over time.
 
-##Mockup
+## Mockup
 
 https://docs.google.com/document/d/1X4G9KdUbTkOpNcfzO5srYEkUHF5MRGSzcfgqH7lW6ns/edit?usp=sharing
