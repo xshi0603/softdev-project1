@@ -9,7 +9,7 @@
   - GDP per capita
   - etc...
 
-## Source
+## Sources
 GDP per state from 1997 to 2016:
 https://fred.stlouisfed.org/release?rid=140
 
