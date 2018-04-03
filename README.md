@@ -10,7 +10,7 @@
   - etc...
 
 ## Sources
-GDP per Capita per state from 1997 to 2016:
+GDP per Capita per state for 2014:
 https://bea.gov/scb/pdf/2015/07%20July/0715_gross_domestic_product_by_state.pdf
 
 Life Expectancy of the 50 states in 2014:
