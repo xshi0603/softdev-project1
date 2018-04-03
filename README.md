@@ -10,8 +10,8 @@
   - etc...
 
 ## Sources
-GDP per state from 1997 to 2016:
-https://fred.stlouisfed.org/release?rid=140
+GDP per Capita per state from 1997 to 2016:
+https://bea.gov/scb/pdf/2015/07%20July/0715_gross_domestic_product_by_state.pdf
 
 Life Expectancy of the 50 states in 2014:
 http://www.businessinsider.com/us-states-with-the-highest-and-lowest-life-expectancy-2017-5
