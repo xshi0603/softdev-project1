@@ -22,6 +22,9 @@ https://www.bls.gov/lau/lastrk14.htm
 Unemployment Rates for every state in 2018:
 https://www.bls.gov/web/laus/laumstrk.htm
 
+Healthcare Expenditure by State in 2014:
+https://www.kff.org/other/state-indicator/health-spending-per-capita/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D
+
 ## Relevance/Significance
 The multiple scatterplots will show the relationships between life expectancy in states across the US and factors that we believe can influence life expectancy, such as GDP per capita, amount of unemployment, average alcohol consumption, etc. Using these multiple sets of data in comparison to life expectancy can show us trends and help us generalize the effects of a certain aspects of a state that can influence its life expectancy.
 
