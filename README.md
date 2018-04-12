@@ -10,6 +10,9 @@
   - etc...
 
 ## Sources
+Example our project is base on:
+http://charts.animateddata.co.uk/whatmakesushappy/
+
 GDP per Capita per state for 2014:
 https://bea.gov/scb/pdf/2015/07%20July/0715_gross_domestic_product_by_state.pdf
 
