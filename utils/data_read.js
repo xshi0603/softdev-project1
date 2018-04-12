@@ -5,12 +5,14 @@
   returns: an object with keys being states and values being the data
 */
 var parseData = function( csv ) {
-    obj = {};
-    data = d3.csv( csv );
-    for (var entry in data) {
-	obj[ entry["state"] ] = entry["data"];
-    }
-    return obj;
+    d3.csv( csv, function(d) {
+	return {
+	    state : d["U.S. State"],
+	    gdp : +d["Real GDP per Capita (2014)"]
+	};
+    }, function(data) {
+	console.log(data[0]);
+    });
 }
 
 
