@@ -5,7 +5,51 @@
     <meta charset="utf-8">
 	  <link rel='stylesheet' type = 'text/css' href='../static/css/home.css'/>
   </head>
+
+
   <body>
+
+  <div class="navbar">
+
+  <img class="logo" src="lifelogo.png">
+
+  <div class="dropdown">
+    <button class="dropbtn">Data Set</button>
+    <div class="dropdown-content">
+      <a href="#">Data 1</a>
+      <a href="#">Data 2</a>
+      <a href="#">Data 3</a>
+    </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn">Theme</button>
+    <div class="dropdown-content">
+      <a href="#">Theme 1</a>
+      <a href="#">Theme 2</a>
+      <a href="#">Theme 3</a>
+    </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn">Size</button>
+    <div class="dropdown-content">
+      <a href="#">Size 1</a>
+      <a href="#">Size 2</a>
+      <a href="#">Size 3</a>
+    </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn">Radius Scale</button>
+    <div class="dropdown-content">
+      <a href="#">Linear</a>
+      <a href="#">Log</a>
+    </div>
+  </div> 
+
+</div>
+
     <h1 id="graph_title" style="text-align: center">Life Expectancy vs. You Choose!</h1>
     <div align="left">
       <form>
@@ -25,7 +69,25 @@
     <div align="left" id="graph">
     </div>
 
+   <br>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
     <script src='../static/js/home.js'></script>
+
+    <br><br><br><br>
+
+	----------------------------<br>
+     random data^: for testing purpose only <br><br>
+    Next steps:<br><br>
+    	- extract and format actual data<br>
+    	- draw x, y axes <br>
+    	- rescale data and plot them on the graph<br>
+    	- add visual features (hovering, transition, info display on dots, line of best fit, etc.)<br>
+    	----------------------------<br><br>
+    	- add more datasets ==> need to rescale y (and x?) axis for each graph for appropriate units<br>
+    	----------------------------<br><br>
+    	- additional features (themes, size, dot shape, etc.)
+
   </body>
 </html>
 
@@ -35,7 +97,7 @@
 Next: 
 
 1. extract data
-2. put into a scatterplot (dots, axis, display)
+2. put into a scatterplot (dots ==> axis ==> more info display (hovering, transition, etc.))
 
 -->
 

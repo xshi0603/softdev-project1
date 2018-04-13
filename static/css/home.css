@@ -1,10 +1,95 @@
 
 /*testing purpose only*/
 
-h1 {
+#graph_title {
 	align-self: center;
   	color: purple;
   	font-size: 30pt;
   	font-weight: 200;
+  	font-family: Garamond;
+    font-variant: small-caps;
 }
 
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;    
+    border-style: solid;
+    border-width: 0px 0.3px 0px 0.3px;
+    border-color: white;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: Garamond;
+    font-variant: small-caps;
+    margin: 0;
+    letter-spacing: 2px;
+
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    text-shadow: 0.7px 0.7px white;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-family: Garamond;
+    font-variant: small-caps;
+
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border-style: solid;
+    border-width: 0.1px 0px 0.1px 0px;
+    border-color: #ddd;
+
+}
+
+.dropdown-content a:hover {
+    text-shadow: 0.7px 0.7px black;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.logo {
+    display: inline-block;
+    vertical-align: top;
+    align-content: right;
+    align-self: right;
+    width: 300px;
+    height: 45px;
+
+ 
+}
