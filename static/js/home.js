@@ -1,21 +1,24 @@
 var w = 700;
 var h = 400;
-var padding = 100;
+var padding = 50;
 			
 var dataset = [[5, 20], [480, 90], [250, 50], [100, 33], [330, 95],[410, 12], [475, 44], [25, 67], [85, 21], [220, 88] ];			
-			
+	
+
+//Create SVG========================================		
 var svg = d3.select("body")
 	.append("svg")
 	.attr("width", w)
 	.attr("height", h);		
 
+//Draw X and Y Axes========================================
 var yScale = d3.scale.linear()
     .domain([0, 100])    
     .range([h - padding, padding]);  
 
 var xScale = d3.time.scale()
     .domain([0, 100])
-    .range([padding, w - padding * 2]);
+    .range([padding, w - padding]);
 
 // define the y axis
 var yAxis = d3.svg.axis()
@@ -47,6 +50,7 @@ svg.selectAll(".xaxis text")  // select all the text elements for the xaxis
 	    return "translate(" + this.getBBox().height*-2 + "," + this.getBBox().height + ")rotate(-45)";
         });
     
+//Draw Dots========================================
 
 svg.selectAll("circle")
 	.data(dataset)
@@ -65,6 +69,7 @@ svg.selectAll("circle")
 		//visual info display
 	})
 	.on("mouseout", function(d) {
+		//visual info display
 
 	})
 

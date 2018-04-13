@@ -10,6 +10,11 @@
     font-variant: small-caps;
 }
 
+.center {
+    margin: auto;
+    display: block;
+}
+
 .navbar {
     overflow: hidden;
     background-color: #333;
