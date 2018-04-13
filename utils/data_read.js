@@ -9,10 +9,11 @@ var parseData = function( csv ) {
 	return {
 	    state : d["U.S. State"],
 	    gdp : +d["Real GDP per Capita (2014)"]
-	};
-    }, function(data) {
-	console.log(data[0]);
-    });
+	   };
+   }, function(data) {
+       console.log(data[0]);
+   }
+);
 }
 
 
