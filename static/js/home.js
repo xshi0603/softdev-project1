@@ -6,7 +6,7 @@ var dataset = [[5, 20], [480, 90], [250, 50], [100, 33], [330, 95],[410, 12], [4
 	
 
 //Create SVG========================================		
-var svg = d3.select("body")
+var svg = d3.select("#graph")
 	.append("svg")
 	.attr("width", w)
 	.attr("height", h);		
