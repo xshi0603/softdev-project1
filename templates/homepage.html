@@ -21,7 +21,7 @@
       <a href="#">Health Spending (2014)</a>
       <a href="#">Per Capita Binge Drinking (2016)</a>
     </div>
-  </div> 
+  </div>
   -->
   <div class="dropdown">
     <button class="dropbtn">Theme</button>
@@ -30,7 +30,7 @@
       <a href="#">Theme 2</a>
       <a href="#">Theme 3</a>
     </div>
-  </div> 
+  </div>
 
   <div class="dropdown">
     <button class="dropbtn">Size</button>
@@ -39,7 +39,7 @@
       <a href="#">Size 2</a>
       <a href="#">Size 3</a>
     </div>
-  </div> 
+  </div>
 
   <div class="dropdown">
     <button class="dropbtn">Radius Scale</button>
@@ -47,7 +47,7 @@
       <a href="#">Linear</a>
       <a href="#">Log</a>
     </div>
-  </div> 
+  </div>
 
 </div>
 
@@ -68,13 +68,17 @@
 	</div>
     </div>
     <div id="graph" transform="translate(80,-60)">
-    </div> 
+    </div>
 
   <br>
   <div  class="center">
     <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript">
+            var csvdata = {{ data_var|tojson }}
+            console.log( csvdata );
+    </script>
+    <script src='static/js/home.js'></script>
 
-    <script src='../static/js/home.js'></script>
   </div>
 
     <br><br><br><br>
@@ -95,9 +99,9 @@
 </html>
 
 
-<!-- 
+<!--
 
-Next: 
+Next:
 
 1. extract data
 2. put into a scatterplot (dots ==> axis ==> more info display (hovering, transition, etc.))
@@ -107,15 +111,15 @@ Next:
 
 <!-- Potential Features to be Included -->
 
-<!-- Dynamic part: 
+<!-- Dynamic part:
 
-	- Hover ==> highlight + display point info 
+	- Hover ==> highlight + display point info
 
-Graph Box Features: 
+Graph Box Features:
 
-	- drop-down list to customize: 
+	- drop-down list to customize:
 		- dimension display
-		- color themes 
+		- color themes
 		- radius scale
 		- (y scale (auto-collapse/expand))
 
@@ -123,8 +127,8 @@ Graph Box Features:
 
 Entire Page:
 
-	- graph box 
-	- graph description 
+	- graph box
+	- graph description
 	- use instructions
 	- credits
 

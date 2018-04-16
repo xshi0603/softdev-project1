@@ -6,14 +6,14 @@ app = Flask(__name__)
 @app.route('/')
 def graph():
     # GET LOAD THE DATA FROM A CSV
-    data = []
+    csv_data = []
     with open( "data/GDP2014.csv") as file:
         reader = DictReader( file )
         for row in reader:
-            data.append( row )
-    # print data
+            csv_data.append( row )
+    print csv_data
 
-    return render_template('homepage.html', data=data)
+    return render_template('homepage.html', data_var = csv_data)
 
 if __name__ == "__main__":
     app.debug = True
