@@ -11,7 +11,7 @@ def graph():
         reader = DictReader( file )
         for row in reader:
             csv_data.append( row )
-    print csv_data
+    # print csv_data
 
     return render_template('homepage.html', data_var = csv_data)
 

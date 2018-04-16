@@ -1,9 +1,16 @@
+// console.log( csvdata );
+/*
+	The variable csvdata is set by homepage.html and the flask app. It is an array
+	of 50 objects, with each object representing a state and containing the relevant
+	data for that state.
+*/
+
+
 var w = 700;
 var h = 400;
 var padding = 50;
 
 var dataset = [[5, 20], [480, 90], [250, 50], [100, 33], [330, 95],[410, 12], [475, 44], [25, 67], [85, 21], [220, 88] ];
-console.log( csvdata );
 
 //Create SVG========================================
 var svg = d3.select("#graph")
