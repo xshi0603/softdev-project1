@@ -7,7 +7,7 @@ app = Flask(__name__)
 def graph():
     # GET LOAD THE DATA FROM A CSV
     csv_data = []
-    with open( "data/GDP2014.csv") as file:
+    with open( "data/data_comp.csv") as file:
         reader = DictReader( file )
         for row in reader:
             csv_data.append( row )
