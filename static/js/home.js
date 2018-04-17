@@ -1,24 +1,66 @@
-// console.log( csvdata );
+// --------------------------- HANDLE DATA ---------------------------
+
+
 /*
 	The variable csvdata is set by homepage.html and the flask app. It is an array
 	of 50 objects, with each object representing a state and containing the relevant
 	data for that state.
 */
 
+// processes the data so that strings are appropriately converted to numerical values
+var processData = function(){
+	csvdata.forEach( function(o) {
+		o["Average Life Expectancy"] = parseFloat( o["Average Life Expectancy"] );
+		o["Obama Approval Rating"] = parseFloat( o["Obama Approval Rating"] );
+		o["Unemployment Rate"] = parseFloat( o["Unemployment Rate"] );
+		o["Wellbeing Index"] = parseFloat( o["Wellbeing Index"] );
+		o["GDP"] = parseInt( o["GDP"] );
+		o["Health Spending Per Capita"] = parseInt( o["Health Spending Per Capita"] );
+	});
+}
 
+// processData( csvdata );
+console.log( csvdata );
+
+
+
+// --------------------------- SET INITIAL VARIABLES ---------------------------
 var w = 700;
 var h = 400;
 var padding = 50;
 
 var dataset = [[5, 20], [480, 90], [250, 50], [100, 33], [330, 95],[410, 12], [475, 44], [25, 67], [85, 21], [220, 88] ];
 
-//Create SVG========================================
 var svg = d3.select("#graph")
 	.append("svg")
 	.attr("width", w)
 	.attr("height", h);
 
-//Draw X and Y Axes========================================
+
+
+// --------------------------- DRAW AXES ---------------------------
+
+// the scale function for the x-axis (set by setXScale)
+var xScale;
+// the scale function for the y-axis
+var yScale;
+
+// sets the scale function for the x-axis given a particular dataset
+var setXScale = function( dataset ) {
+
+}
+
+// helper method to get the minimum value for a particular dataset
+var getMinVal = function( dataset ) {
+
+}
+
+// helper method to get the maximum value for a particular dataset
+var getMinVal = function( dataset ) {
+
+}
+
+
 var yScale = d3.scale.linear()
     .domain([0, 100])
     .range([h - padding, padding]);
@@ -37,6 +79,7 @@ var xAxis = d3.svg.axis()
     .orient("bottom")
     .scale(xScale);
 
+
 // draw y axis with labels and move in from the size by the amount of padding
 svg.append("g")
     .attr("transform", "translate("+padding+",0)")
@@ -48,6 +91,7 @@ svg.append("g")
     .attr("transform", "translate(0," + (h - padding) + ")")
     .call(xAxis);
 
+
 // now rotate text on x axis
 // solution based on idea here: https://groups.google.com/forum/?fromgroups#!topic/d3-js/heOBPQF3sAY
 // first move the text left so no longer centered on the tick
@@ -57,7 +101,8 @@ svg.selectAll(".xaxis text")  // select all the text elements for the xaxis
 	    return "translate(" + this.getBBox().height*-2 + "," + this.getBBox().height + ")rotate(-45)";
         });
 
-//Draw Dots========================================
+
+// --------------------------- DRAW POINTS ---------------------------
 
 svg.selectAll("circle")
 	.data(dataset)
