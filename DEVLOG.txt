@@ -13,3 +13,6 @@ worked more on data fixing, almost done
 goldmanJ -- 2018-04-17 14:04:48
 started work on axes
 
+goldmanJ -- 2018-04-17 15:21:05
+finished scaled axes (requires more testing)
+

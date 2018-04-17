@@ -40,16 +40,6 @@ var svg = d3.select("#graph")
 
 // --------------------------- DRAW AXES ---------------------------
 
-// the scale function for the x-axis (set by setXScale)
-var xScale;
-// the scale function for the y-axis
-var yScale;
-
-// sets the scale function for the x-axis given a particular dataset
-var setXScale = function( dataset ) {
-
-}
-
 // helper method to get the minimum value for a particular dataset
 var getMinVal = function( dataset ) {
 	var currentMin = 10000000000000;
@@ -60,15 +50,6 @@ var getMinVal = function( dataset ) {
 	});
 	return currentMin;
 }
-/*
-console.log( "TESTING MIN VALUES:");
-console.log( getMinVal("GDP") );
-console.log( getMinVal("Average Life Expectancy") );
-console.log( getMinVal("Health Spending Per Capita") );
-console.log( getMinVal("Obama Approval Rating") );
-console.log( getMinVal("Unemployment Rate") );
-console.log( getMinVal("Wellbeing Index") );
-*/
 
 
 // helper method to get the maximum value for a particular dataset
@@ -81,24 +62,36 @@ var getMaxVal = function( dataset ) {
 	});
 	return currentMax;
 }
-/*
-console.log( "TESTING MAX VALUES:");
-console.log( getMaxVal("GDP") );
-console.log( getMaxVal("Average Life Expectancy") );
-console.log( getMaxVal("Health Spending Per Capita") );
-console.log( getMaxVal("Obama Approval Rating") );
-console.log( getMaxVal("Unemployment Rate") );
-console.log( getMaxVal("Wellbeing Index") );
-*/
 
 
-var yScale = d3.scale.linear()
-					 .domain([0, 100])
-	    			 .range([h - padding, padding]);
 
-var xScale = d3.time.scale()
-    				.domain([0, 100])
-		    		.range([padding, w - padding]);
+// the scale function for the x-axis (set by setXScale)
+var xScale;
+// the scale function for the y-axis
+var yScale;
+// set the yScale permenantly
+var lifeExMin = getMinVal( "Average Life Expectancy" );
+var lifeExMax = getMaxVal( "Average Life Expectancy" );
+yScale = d3.scale.linear()
+				 .domain( [ lifeExMin - lifeExMin/10, lifeExMax + lifeExMax/10 ] )
+				 .range( [h - padding, padding] );
+
+
+
+// sets the scale function for the x-axis given a particular dataset
+var setXScale = function( dataset ) {
+	var min = getMinVal( dataset );
+	var max = getMaxVal( dataset );
+	xScale = d3.scale.linear()
+					 .domain( [ min - min/10, max + max/10 ] ) // the values we can enter, offset to prevent awkward ends
+					 .range( [padding, w - padding] ); // the values to map to, set to the axis length
+}
+
+// set the initial xScale to GDP
+setXScale( "GDP" );
+
+
+
 
 // define the y axis
 var yAxis = d3.svg.axis()
