@@ -7,3 +7,6 @@ worked on csv
 goldmanJ -- 2018-04-16 14:02:12
 finished data transfer, woking on data modification
 
+goldmanJ -- 2018-04-17 11:44:33
+worked more on data fixing, almost done
+
