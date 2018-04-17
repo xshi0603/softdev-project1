@@ -1,5 +1,5 @@
 // --------------------------- HANDLE DATA ---------------------------
-
+// console.log( csvdata );
 
 /*
 	The variable csvdata is set by homepage.html and the flask app. It is an array
@@ -19,7 +19,7 @@ var processData = function(){
 	});
 }
 
-// processData( csvdata );
+processData( csvdata );
 console.log( csvdata );
 
 
@@ -52,22 +52,53 @@ var setXScale = function( dataset ) {
 
 // helper method to get the minimum value for a particular dataset
 var getMinVal = function( dataset ) {
-
+	var currentMin = 10000000000000;
+	csvdata.forEach( function(o) {
+		if ( o[dataset] < currentMin ){
+			currentMin = o[dataset];
+		}
+	});
+	return currentMin;
 }
+/*
+console.log( "TESTING MIN VALUES:");
+console.log( getMinVal("GDP") );
+console.log( getMinVal("Average Life Expectancy") );
+console.log( getMinVal("Health Spending Per Capita") );
+console.log( getMinVal("Obama Approval Rating") );
+console.log( getMinVal("Unemployment Rate") );
+console.log( getMinVal("Wellbeing Index") );
+*/
+
 
 // helper method to get the maximum value for a particular dataset
-var getMinVal = function( dataset ) {
-
+var getMaxVal = function( dataset ) {
+	var currentMax = 0;
+	csvdata.forEach( function(o) {
+		if ( o[dataset] > currentMax ){
+			currentMax = o[dataset];
+		}
+	});
+	return currentMax;
 }
+/*
+console.log( "TESTING MAX VALUES:");
+console.log( getMaxVal("GDP") );
+console.log( getMaxVal("Average Life Expectancy") );
+console.log( getMaxVal("Health Spending Per Capita") );
+console.log( getMaxVal("Obama Approval Rating") );
+console.log( getMaxVal("Unemployment Rate") );
+console.log( getMaxVal("Wellbeing Index") );
+*/
 
 
 var yScale = d3.scale.linear()
-    .domain([0, 100])
-    .range([h - padding, padding]);
+					 .domain([0, 100])
+	    			 .range([h - padding, padding]);
 
 var xScale = d3.time.scale()
-    .domain([0, 100])
-    .range([padding, w - padding]);
+    				.domain([0, 100])
+		    		.range([padding, w - padding]);
 
 // define the y axis
 var yAxis = d3.svg.axis()
