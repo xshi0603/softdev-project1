@@ -9,11 +9,11 @@
 
   <body>
 
-  <div class="navbar">
+  <!--<div class="navbar">
 
   <img class="logo" src="lifelogo.png">
 
-  <!--<div class="dropdown">
+  <div class="dropdown">
     <button class="dropbtn">Data Set</button>
     <div class="dropdown-content">
       <a href="#">Unemployment(2014)</a>
@@ -23,7 +23,7 @@
     </div>
   </div>
   -->
-  <div class="dropdown">
+  <!--<div class="dropdown">
     <button class="dropbtn">Theme</button>
     <div class="dropdown-content">
       <a href="#">Theme 1</a>
@@ -51,21 +51,28 @@
 
 
 </div>
+-->
 
 
     <h1 id="graph_title" style="text-align: center">Life Expectancy vs. You Choose!</h1>
     <div align="center">
-      <form>
-	<p>Choose A Data Set:</p>
+      <form id="Radio">
+	<p>Choose A Data Set (all data is for 2014):</p>
 	<div>
-	  <input type="radio" name="dataset" id="data1" value="__" checked>
-	  <label for="data1">__</label>
+	  <input type="radio" name="dataset" id="button1" value="GDP" checked>
+	  <label for="data1">State GDP</label>
 	  <br>
-	  <input type="radio" name="dataset" id="data1" value="__">
-	  <label for="data1">__</label>
+	  <input type="radio" name="dataset" id="button2" value="HSpend">
+	  <label for="data1">State Health Spending Per Capita</label>
 	  <br>
-	  <input type="radio" name="dataset" id="data1" value="__">
-	  <label for="data1">__</label>
+	  <input type="radio" name="dataset" id="button3" value="Approval">
+	  <label for="data1">Obama Approval Rating</label>
+	  <br>
+	  <input type="radio" name="dataset" id="button4" value="Unemploy">
+	  <label for="data1">State Unemployment Rate</label>
+	  <br>
+	  <input type="radio" name="dataset" id="button5" value="Wellbeing">
+	  <label for="data1">State Wellbeing Index</label>
 	  <br>
 	</div>
     </div>
@@ -79,7 +86,7 @@
              var csvdata = {{ data_var|tojson }}
     </script>
     <script src='../static/js/home.js'></script>
-
+    
   </div>
 
     <br><br><br><br>
@@ -96,7 +103,7 @@
     	- add more datasets ==> need to rescale y (and x?) axis for each graph for appropriate units<br>
     	----------------------------<br><br>
     	- additional features (themes, size, dot shape, etc.)
-
+    
   </body>
 </html>
 
