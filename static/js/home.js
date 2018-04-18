@@ -22,6 +22,7 @@ var processData = function(){
 processData( csvdata );
 console.log( csvdata );
 
+var currentX = "GDP"
 
 
 // --------------------------- SET INITIAL VARIABLES ---------------------------
@@ -64,7 +65,6 @@ var getMaxVal = function( dataset ) {
 }
 
 
-
 // the scale function for the x-axis (set by setXScale)
 var xScale;
 // the scale function for the y-axis
@@ -79,18 +79,16 @@ yScale = d3.scale.linear()
 
 
 // sets the scale function for the x-axis given a particular dataset
-var setXScale = function( dataset ) {
-	var min = getMinVal( dataset );
-	var max = getMaxVal( dataset );
+var setXScale = function() {
+	var min = getMinVal( currentX );
+	var max = getMaxVal( currentX );
 	xScale = d3.scale.linear()
 					 .domain( [ min - min/10, max + max/10 ] ) // the values we can enter, offset to prevent awkward ends
 					 .range( [padding, w - padding] ); // the values to map to, set to the axis length
 }
 
 // set the initial xScale to GDP
-setXScale( "GDP" );
-
-
+setXScale();
 
 
 // define the y axis
@@ -129,17 +127,16 @@ svg.selectAll(".xaxis text")  // select all the text elements for the xaxis
 // --------------------------- DRAW POINTS ---------------------------
 
 svg.selectAll("circle")
-	.data(dataset)
-	.enter().append('circle')
-	.attr('cx',function(d){
-		return d[0] + padding;
+	.data(csvdata)
+	.enter()
+	.append('circle')
+	.attr('cx',function(d) {
+		return xScale( d[currentX] )
 	})
 	.attr("cy", function(d) {
-	 	return d[1] + padding;
+	 	return yScale( d["Average Life Expectancy"] )
 	})
-
 	.attr("r", 5)
-
 	.on("mouseover", function(d) {
 		return "" + d[0] + ", " + d[1]
 		//visual info display

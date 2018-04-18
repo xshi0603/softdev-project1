@@ -16,3 +16,6 @@ started work on axes
 goldmanJ -- 2018-04-17 15:21:05
 finished scaled axes (requires more testing)
 
+goldmanJ -- 2018-04-18 11:59:51
+Added appropriate points, tested axes. Next step is to fix axes padding to be a uniform percentage
+
