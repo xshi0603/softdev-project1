@@ -22,7 +22,8 @@ var processData = function(){
 processData( csvdata );
 console.log( csvdata );
 
-var currentX = "GDP"
+var currentSet = "GDP"
+
 
 
 // --------------------------- SET INITIAL VARIABLES ---------------------------
@@ -67,9 +68,16 @@ var getMaxVal = function( dataset ) {
 
 // the scale function for the x-axis (set by setXScale)
 var xScale;
+// set the xScale
+var min = getMinVal( currentSet );
+var max = getMaxVal( currentSet );
+xScale = d3.scale.linear()
+				 .domain( [ min - min/10, max + max/10 ] )
+				 .range( [padding, w - padding] );
+
 // the scale function for the y-axis
 var yScale;
-// set the yScale permenantly
+// set the yScale
 var lifeExMin = getMinVal( "Average Life Expectancy" );
 var lifeExMax = getMaxVal( "Average Life Expectancy" );
 yScale = d3.scale.linear()
@@ -80,15 +88,10 @@ yScale = d3.scale.linear()
 
 // sets the scale function for the x-axis given a particular dataset
 var setXScale = function() {
-	var min = getMinVal( currentX );
-	var max = getMaxVal( currentX );
-	xScale = d3.scale.linear()
-					 .domain( [ min - min/10, max + max/10 ] ) // the values we can enter, offset to prevent awkward ends
-					 .range( [padding, w - padding] ); // the values to map to, set to the axis length
+	var min = getMinVal( currentSet );
+	var max = getMaxVal( currentSet );
+	xScale.domain( [ min - min/10, max + max/10 ] ) // the values we can enter, offset to prevent awkward ends
 }
-
-// set the initial xScale to GDP
-setXScale();
 
 
 // define the y axis
@@ -114,24 +117,16 @@ svg.append("g")
     .call(xAxis);
 
 
-// now rotate text on x axis
-// solution based on idea here: https://groups.google.com/forum/?fromgroups#!topic/d3-js/heOBPQF3sAY
-// first move the text left so no longer centered on the tick
-// then rotate up to get 45 degrees.
-svg.selectAll(".xaxis text")  // select all the text elements for the xaxis
-    .attr("transform", function(d) {
-	    return "translate(" + this.getBBox().height*-2 + "," + this.getBBox().height + ")rotate(-45)";
-        });
-
 
 // --------------------------- DRAW POINTS ---------------------------
 
+// set the initial points by adding the data and setting the attributes
 svg.selectAll("circle")
-	.data(csvdata)
+	.data( csvdata )
 	.enter()
 	.append('circle')
 	.attr('cx',function(d) {
-		return xScale( d[currentX] )
+		return xScale( d[currentSet] )
 	})
 	.attr("cy", function(d) {
 	 	return yScale( d["Average Life Expectancy"] )
@@ -143,5 +138,21 @@ svg.selectAll("circle")
 	})
 	.on("mouseout", function(d) {
 		//visual info display
-
 	})
+
+
+
+// --------------------------- TRANSITIONS ---------------------------
+
+// changes the currently displayed dataset to newSet and does the transition
+var changeSet = function( newSet ) {
+	// set the new dataset
+	currentSet = newSet;
+	// sets the new scale
+	setXScale();
+	// transition the x axis
+	svg.select(".xaxis")
+            .transition()
+			.duration(1500)
+            .call(xAxis);
+}
