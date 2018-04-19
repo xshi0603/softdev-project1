@@ -10,6 +10,11 @@
     font-variant: small-caps;
 }
 
+#graph {
+    display: block;
+    margin: auto;
+}
+
 .center {
     margin: auto;
     display: block;

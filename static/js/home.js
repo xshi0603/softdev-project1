@@ -27,8 +27,8 @@ var currentSet = "GDP"
 
 
 // --------------------------- SET INITIAL VARIABLES ---------------------------
-var w = 700;
-var h = 400;
+var w = 1200;
+var h = 700;
 var padding = 50;
 
 var dataset = [[5, 20], [480, 90], [250, 50], [100, 33], [330, 95],[410, 12], [475, 44], [25, 67], [85, 21], [220, 88] ];
@@ -231,3 +231,19 @@ var changeSet = function( newSet ) {
 				return xScale( o[currentSet] )
 			});
 }
+
+//var displayInfo = function(){
+//var circles = svg.selectAll("circle");
+
+// --------------------------- HOVERING ---------------------------
+var displayData = function(circleData){
+    var displayTitle = document.getElementById("displayInfoTitle");
+    var display = document.getElementById("displayInfo");
+    var state = circleData[0];
+    var valueName = circleData[1];
+    var value = circleData[2];
+    var life = circleData[3];
+    displayTitle.innerHTML = state;
+    display.innerHTML = valueName + ": " + value + " | " + "Life Expectancy: "+life;     
+}
+

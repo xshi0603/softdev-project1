@@ -76,11 +76,18 @@
 	  <br>
 	</div>
     </div>
-    <div id="graph" transform="translate(80,-60)">
+    <div id="graph" transform="translate(200,-60)">
     </div>
 
+  <p id="displayInfoTitle" style="text-align: center; font-size=24px;">
+  </p>
+    
+  <p id="displayInfo" style="text-align: center">
+  </p>
+      
+    
   <br>
-  <div  class="center">
+  <div class="center">
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script type="text/javascript">      
              var csvdata = {{ data_var|tojson }}
