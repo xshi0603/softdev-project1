@@ -208,6 +208,36 @@ var bestFit = function (xArray, yArray) {
     
 };
 
+
+
+var drawLoBF = function (dataset) {
+    
+    var min = getMinVal( dataset );
+    var max = getMaxVal( dataset );
+
+//    var coeff = bestFit(xArray, yArray);
+    var coeff = {r: 0.9, m:0.5, b:0};
+
+    
+    var svgs = document.getElementsByTagName("svg")[0];
+    lobf = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    lobf.setAttribute("x1", xScale(min));
+    lobf.setAttribute("x2", xScale(max));
+    
+    console.log(h - (xScale(min) * coeff["m"] + coeff["b"]));
+    console.log(h - (xScale(max) * coeff["m"] + coeff["b"]));
+    
+    lobf.setAttribute("y1", h - (xScale(min) * coeff["m"] + coeff["b"]));
+    lobf.setAttribute("y2", h - (xScale(max) * coeff["m"] + coeff["b"]));
+    lobf.setAttribute("style", "stroke:rgb(255,0,0);stroke-width:2");
+    
+    svgs.appendChild(lobf);
+    
+};
+
+drawLoBF(currentSet);
+
+
 // --------------------------- TRANSITIONS ---------------------------
 
 // changes the currently displayed dataset to newSet and does the transition
