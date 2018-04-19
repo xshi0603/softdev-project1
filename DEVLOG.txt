@@ -22,3 +22,6 @@ Added appropriate points, tested axes. Next step is to fix axes padding to be a 
 goldmanJ -- 2018-04-18 14:04:39
 started working on transitions
 
+goldmanJ -- 2018-04-19 12:35:26
+Not in school but I finished the circle transition
+

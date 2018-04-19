@@ -150,9 +150,18 @@ var changeSet = function( newSet ) {
 	currentSet = newSet;
 	// sets the new scale
 	setXScale();
+	
 	// transition the x axis
 	svg.select(".xaxis")
             .transition()
 			.duration(1500)
             .call(xAxis);
+
+	// transition the points
+	svg.selectAll("circle")
+			.transition()
+			.duration(1500)
+			.attr("cx", function(o) {
+				return xScale( o[currentSet] )
+			});
 }
