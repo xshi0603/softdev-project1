@@ -277,3 +277,18 @@ var displayData = function(circleData){
     display.innerHTML = valueName + ": " + value + " | " + "Life Expectancy: "+life;     
 }
 
+var hoverDisplay = function(){
+    circle = svg.select(this);
+    
+}
+
+var circles = svg.selectAll("circle");
+for circle in circles{
+    circle.addEventListener(onmouseover, hoverDisplay);
+    circle.addEventListener(onmouseout, function(){
+	displayTitle.innerHTML = "";
+	display.innerHTML = "";
+    });
+}
+		
+
