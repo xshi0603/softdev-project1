@@ -122,24 +122,44 @@ svg.append("g")
 
 // set the initial points by adding the data and setting the attributes
 svg.selectAll("circle")
-	.data( csvdata )
-	.enter()
-	.append('circle')
-	.attr('cx',function(d) {
-		return xScale( d[currentSet] )
-	})
-	.attr("cy", function(d) {
-	 	return yScale( d["Average Life Expectancy"] )
-	})
-	.attr("r", 5)
-	.on("mouseover", function(d) {
-		return "" + d[0] + ", " + d[1]
-		//visual info display
-	})
-	.on("mouseout", function(d) {
-		//visual info display
-	})
-
+    .data( csvdata )
+    .enter()
+    .append('circle')
+    .attr('cx',function(d) {
+	return xScale( d[currentSet] )
+    })
+    .attr("cy", function(d) {
+	return yScale( d["Average Life Expectancy"] )
+    })
+    .attr("r", 5)
+    .attr("state", function(d){
+	return d["State"];
+    })
+    .attr("life", function(d){
+	return d["Average Life Expectancy"];
+    })
+    .attr("approval", function(d){
+	return d["Obama Approval Rating"];
+    })
+    .attr("unemploy", function(d){
+	return d["Unemployment Rate"];
+    })
+    .attr("wellbeing", function(d){
+	return d["Wellbeing Index"];
+    })
+    .attr("GDP", function(d){
+	return d["GDP"];
+    })
+    .attr("health", function(d){
+	return d["Health Spending Per Capita"];
+    })
+    .on("mouseover", function(d) {
+	return "" + d[0] + ", " + d[1]
+	//visual info display
+    })
+    .on("mouseout", function(d) {
+	//visual info display
+    })
 
 // --------------------------- LINE OF BEST FIT-----------------------
 
@@ -277,18 +297,25 @@ var displayData = function(circleData){
     display.innerHTML = valueName + ": " + value + " | " + "Life Expectancy: "+life;     
 }
 
-var hoverDisplay = function(){
-    circle = svg.select(this);
-    
-}
-
-var circles = svg.selectAll("circle");
-for circle in circles{
-    circle.addEventListener(onmouseover, hoverDisplay);
-    circle.addEventListener(onmouseout, function(){
-	displayTitle.innerHTML = "";
-	display.innerHTML = "";
+var forMouseOver = function(){
+    //selects hover-overed element
+    svg.select(this).attr({
+	fill: "blue",
+	r: radius * 2
     });
+    var circle = svg.select(this);
+    var state = circle.attr("State");
+    var life = circle.attr("life");
+    //displayData();
 }
+    
+
+    
+
+//Adding event listeners for hovering
+svg.selectAll("circle")
+    .on("onmouseover", hoverDisplay)
+    .on("onmouseout", clearDisplay);
+
 		
 
