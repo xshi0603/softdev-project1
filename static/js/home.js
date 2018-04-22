@@ -40,6 +40,8 @@ d3.select('svg')
     .append('line')
     .attr('id', 'bestfit');
 
+var lobfeq = d3.select("#lobfeq");
+
 
 // --------------------------- DRAW AXES ---------------------------
 
@@ -257,6 +259,10 @@ var drawLoBF = function (currentdata) {
     d3.select('#bestfit')
     .attr({'x1': xScale(x1), 'y1': yScale(y1), 'x2': xScale(x2), 'y2': yScale(y2)})
     .attr({'stroke':'red'});
+
+    lobfeq.text(function (){
+	    return "y = " + Number((coeff.m).toFixed(7)) + "x " + "+ " +  Number((coeff.b).toFixed(7));
+	});
     /*
 
     d3.select()
