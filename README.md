@@ -3,37 +3,32 @@
 ## Data Sets
 - Average life expectancy for residents of every state
 - compared to other factors such as...
-  - money put into health care
-  - money put into education
-  - unemployment rates
   - GDP per capita
+  - State Health Spending Per Capita 
+  - Obama Approval Rating 
+  - State Unemployment Rate 
+  - State Wellbeing Index 
   - etc...
 
 ## Sources
 Example our project is base on:
 http://charts.animateddata.co.uk/whatmakesushappy/
 
+### Data
 GDP per Capita per state for 2014:
 https://bea.gov/scb/pdf/2015/07%20July/0715_gross_domestic_product_by_state.pdf
-
 Life Expectancy of the 50 states in 2014:
 http://www.businessinsider.com/us-states-with-the-highest-and-lowest-life-expectancy-2017-5
-
 Unemployment Rates for every state in 2014: 
 https://www.bls.gov/lau/lastrk14.htm
-
 Unemployment Rates for every state in 2018:
 https://www.bls.gov/web/laus/laumstrk.htm
-
 Healthcare Expenditure by State in 2014:
 https://www.kff.org/other/state-indicator/health-spending-per-capita/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D
-
 Huge database on information per state on data categories such as drinking and obesity:
 https://www.americashealthrankings.org/explore/2016-annual-report/measure/ExcessDrink/state/ALL
-
 State Wellbeing Index in 2014:
 https://www.livescience.com/49864-happiest-states-2014-full-list.html
-
 Obama Approval 2014:
 http://news.gallup.com/poll/125648/obama-approval-among-states-hawaii-warmest-obama.aspx
 
