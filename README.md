@@ -1,5 +1,16 @@
-# Team <INSERT TEAM NAME>
-  
+# Team WXIJ
+
+## Checklist
+
+Description of data set(s).
+Source (brief description + hyperlink)
+Relevance/significance
+Explanation, in broad strokes if necessary, of how you aim to make this data come alive.
+What will be shown, absent user interaction?
+How will user interact with your visualization?
+What questions will your visualization allow user to explore? What questions will it provoke?
+Explanation of D3 feature utilization.
+
 ## Data Sets
 - Average life expectancy for residents of every state
 - compared to other factors such as...
@@ -48,7 +59,9 @@ We will create a scatterplot with the y-axis being the average life expectancy. 
 ## Use of D3
 
 We will use D3 in order to accomplish many tasks such as...
-  - 
+- create and scale axis
+- create a line of best fit
+- plot data points
 
 ## Mockup
 
