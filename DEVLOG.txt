@@ -1,14 +1,26 @@
+shiX -- 2018-03-28 13:23:51
+readme/mockup
+
+shiX -- 2018-04-10 14:43:51
+found data
+
 goldmanJ -- 2018-04-13 13:57:54
 oops, haven't been devloging
 
 goldmanJ -- 2018-04-13 14:05:58
 worked on csv
 
+shiX -- 2018-04-16 14:01:51
+coeff for lobf
+
 goldmanJ -- 2018-04-16 14:02:12
 finished data transfer, woking on data modification
 
 goldmanJ -- 2018-04-17 11:44:33
 worked more on data fixing, almost done
+
+shiX -- 2018-04-17 14:02:51
+drawing lobf, not quite working
 
 goldmanJ -- 2018-04-17 14:04:48
 started work on axes
