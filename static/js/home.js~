@@ -22,8 +22,10 @@ var processData = function(){
 processData( csvdata );
 console.log( csvdata );
 
-var currentSet = "GDP";
-    
+var currentSet = "GDP"
+
+
+
 // --------------------------- SET INITIAL VARIABLES ---------------------------
 var w = 1200;
 var h = 700;
@@ -36,9 +38,6 @@ var svg = d3.select("#graph")
 	.attr("width", w)
 	.attr("height", h);
 
-d3.select('svg')
-    .append('line')
-    .attr('id', 'bestfit');
 
 
 // --------------------------- DRAW AXES ---------------------------
@@ -233,10 +232,8 @@ var bestFit = function (xArray, yArray) {
 
 var drawLoBF = function (currentdata) {
     
-    var x1 = xScale.domain()[0];
-    var x2 = xScale.domain()[1];
-
-    console.log(x1, x2);
+    var x1 = getMinVal( xScale.domain()[0] );
+    var x2 = getMaxVal( xScale.domain()[1] );
 
     var xArray = [];
     for (var i = 0; i < csvdata.length; i++) {
@@ -253,10 +250,13 @@ var drawLoBF = function (currentdata) {
     y1 = coeff.m * x1 + coeff.b;
     y2 = coeff.m * x2 + coeff.b;
 
-    
+
     d3.select('#bestfit')
+    //.style('opacity', 0)
     .attr({'x1': xScale(x1), 'y1': yScale(y1), 'x2': xScale(x2), 'y2': yScale(y2)})
-    .attr({'stroke':'red'});
+    //.transition()
+    //.duration(1500)
+    //.style('opacity', 1);
     /*
 
     d3.select()
