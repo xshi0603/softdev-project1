@@ -1,6 +1,15 @@
 shiX -- 2018-03-28 13:23:51
 readme/mockup
 
+soeW -- 2018-3-30 16:25:00
+added data on life expectancy per state
+
+soeW -- 2018-4-2 15:30:00
+added data on unemployment and gdp for every state
+
+soeW -- 2018-4-3 17:25:00
+added data for Obama approval ratings
+
 shiX -- 2018-04-10 14:43:51
 found data
 
