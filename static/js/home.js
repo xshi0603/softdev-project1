@@ -40,8 +40,8 @@ d3.select('svg')
     .append('line')
     .attr('id', 'bestfit');
 
-var lobfeq = d3.select("#lobfeq")
-    .attr("style","stroke:rgb(255,0,0);stroke-width:2");
+var lobfeq = d3.select("#lobfeq");
+var lobfreg = d3.select("#lobfreg");
 
 
 
@@ -283,6 +283,10 @@ var drawLoBF = function (currentdata) {
     */
     lobfeq.text(function (){
 	    return "y = " + Number((coeff.m).toFixed(7)) + "x " + "+ " +  Number((coeff.b).toFixed(7));
+	});
+
+    lobfreg.text(function (){
+	    return "r = " + Number((coeff.r).toFixed(7));
 	});
     /*
 
