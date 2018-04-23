@@ -362,30 +362,36 @@ var button2 = document.getElementById("button2");
 var button3 = document.getElementById("button3");
 var button4 = document.getElementById("button4");
 var button5 = document.getElementById("button5");
+var title = document.getElementById("graph_title");
 
 button1.addEventListener("click", function() {
-	changeSet("GDP");
-	console.log("1");
+    changeSet("GDP");
+    console.log("1");
+    title.innerHTML = "Life Expectancy vs. State GDP";
     });
 
 button2.addEventListener("click", function() {
-	changeSet("Health Spending Per Capita");
-	console.log("2");
+    changeSet("Health Spending Per Capita");
+    console.log("2");
+    title.innerHTML = "Life Expectancy vs. State Health Spending Per Capita";
     });
 
 button3.addEventListener("click", function() {
-	changeSet("Obama Approval Rating");
-	console.log("3");
+    changeSet("Obama Approval Rating");
+    console.log("3");
+    title.innerHTML = "Life Expectancy vs. State Obama Approval Rating";
     });
 
 button4.addEventListener("click", function() {
-	changeSet("Unemployment Rate");
-	console.log("4");
+    changeSet("Unemployment Rate");
+    console.log("4");
+    title.innerHTML = "Life Expectancy vs. State Unemployment Rate";
     });
 
 button5.addEventListener("click", function() {
-	changeSet("Wellbeing Index");
-	console.log("5");
+    changeSet("Wellbeing Index");
+    console.log("5");
+    title.innerHTML = "Life Expectancy vs. State Overall Wellbeing";
     });
 
 // --------------------------- HOVERING ---------------------------
