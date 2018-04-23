@@ -7,7 +7,7 @@
   </head>
 
 
-  <body>
+  <body style="background-color: white">
 
   <!--<div class="navbar">
 
@@ -55,15 +55,16 @@
 
 
 
-  <h1 id="graph_title" style="text-align: center">Life Expectancy vs. You Choose!</h1>
+  <h1 id="graph_title" style="text-align: center">Life Expectancy vs. State GDP</h1>
   <div class="modal-body row">
     <div class="col-md-3">
       <!-- Your first column here -->
       <div align="center">
 	<br> <br> <br>
 	<form id="Radio">
-	  <p>Choose A Data Set (all data is for 2014):</p>
-	  <div>
+	  <p style="font-size: 26px"><b>Choose A Data Set:</b></p>
+	  <p style="font-size: 18px">All Data is from 2014</p>
+	  <div style="font-size: 24px">
 	    <input type="radio" name="dataset" id="button1" value="GDP" checked>
 	    <label for="data1">State GDP</label>
 	    <br>
@@ -85,9 +86,11 @@
       
       <br> <br> <br> <br>
 
+      <div style="font-size: 20px">
+      <p align="center">Equation of Line of Best Fit</p>
       <div align="center" id = "lobfeq"> </div>
       <div align="center" id = "lobfreg"> </div>
-      
+      </div>
       
     </div>
     <div class="col-md-9">
