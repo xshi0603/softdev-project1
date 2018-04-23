@@ -29,7 +29,6 @@ var w = 1200;
 var h = 700;
 var padding = 50;
 
-//var dataset = [[5, 20], [480, 90], [250, 50], [100, 33], [330, 95],[410, 12], [475, 44], [25, 67], [85, 21], [220, 88] ];
 
 var svg = d3.select("#graph")
 	.append("svg")
@@ -41,12 +40,6 @@ d3.select('svg')
     .attr('id', 'bestfit');
 
 
-d3.select('svg')
-    .append('line')
-    .attr('id', 'guide_line1');
-d3.select('svg')
-    .append('line')
-    .attr('id', 'guide_line2');
 
 d3.select('svg')
     .append('text')
@@ -181,14 +174,7 @@ svg.selectAll("circle")
     .attr("health", function(d){
 	return d["Health Spending Per Capita"];
     })
-    .on("mouseover", function(d) {
-	return "" + d[0] + ", " + d[1]
-	//visual info display
-    })
-    .on("mouseout", function(d) {
-	//visual info display
-    })
-
+    
 // --------------------------- LINE OF BEST FIT-----------------------
 
 var bestFit = function (xArray, yArray) {
@@ -444,25 +430,109 @@ var hoverDisplay = function(){
 
     circle.transition()
         .duration(800).style("opacity", 1)
-        .attr("r", 16).ease("elastic");
+        .attr("r", 15).ease("elastic");
     var state = circle.attr("State");
     var life = circle.attr("life");
-    //displayData();
-    console.log('hovered');
+    
+   // console.log('hovered');
     drawGuideLines();
+    displayData();
 }
     
 var clearDisplay = function(){
-    console.log('mouseoff');
-    //working on this .....
-}
+    
+    var circle = d3.select(this);
+    circle.transition()
+        .duration(800).style("opacity",.6)
+        .attr("r",10).ease('elastic');
+    d3.select('#guide_line1').transition().
+        duration(80).styleTween("opacity", 
+                        function() { 
+                            return d3.interpolate(.5, 0); 
+                        })
+            .remove();
+    d3.select('#guide_line2').transition().
+        duration(80).styleTween("opacity", 
+                        function() { 
+                            return d3.interpolate(.5, 0); 
+                        })
+            .remove();
+    d3.selectAll('#dot_info').transition().
+        duration(20).styleTween("opacity", 
+                        function() { 
+                            return d3.interpolate(.5, 0); 
+                        })
+            .remove();
+        }
+
+var displayData = function(){
+    var target = event.target;
+    d3.select('svg')
+        .append('text')
+        .attr('id', 'dot_info')
+        .attr('x', 70)
+        .attr('y',140)
+        .style({'font-size': '60px', 'fill': target.getAttribute('fill')})
+        .text(target.getAttribute('state'))
+        .transition()
+        .duration(20);
+
+
+    d3.select('svg')
+        .append('text')
+        .attr('id', 'dot_info')
+        .attr('x', 70)
+        .attr('y',180)
+        .style({'font-size': '20px', 'fill': target.getAttribute('fill')})
+        .text(xLabel.innerHTML)
+        .transition()
+        .duration(20);
+
+    d3.select('svg')
+        .append('text')
+        .attr('id', 'dot_info')
+        .attr('x', 70)
+        .attr('y',200)
+        .style({'font-size': '20px', 'fill': target.getAttribute('fill')})
+        .text(target.getAttribute(currentSet))
+        .transition()
+        .duration(20);
+
+    d3.select('svg')
+        .append('text')
+        .attr('id', 'dot_info')
+        .attr('x', 70)
+        .attr('y',240)
+        .style({'font-size': '20px', 'fill': target.getAttribute('fill')})
+        .text('Life Expectancy(in years)')
+        .transition()
+        .duration(20);
+
+    d3.select('svg')
+        .append('text')
+        .attr('id', 'dot_info')
+        .attr('x', 70)
+        .attr('y',260)
+        .style({'font-size': '20px', 'fill': target.getAttribute('fill')})
+        .text(target.getAttribute('life'))
+        .transition()
+        .duration(20);
+
+    }
+
+
 
 var drawGuideLines = function(d){
-
     var circle = d3.select(this);
     var target = event.target;
     console.log('guidelinedrawn');
     console.log(target);
+    d3.select('svg')
+        .append('line')
+        .attr('id', 'guide_line1');
+    d3.select('svg')
+        .append('line')
+        .attr('id', 'guide_line2');
 
     d3.select('#guide_line1')
     .attr('x1',target.getAttribute('cx'))
@@ -485,8 +555,6 @@ var drawGuideLines = function(d){
     .transition()
     .duration(1500)
     .style('opacity', 1); 
-
-
 
 }
     
