@@ -40,7 +40,20 @@ d3.select('svg')
     .append('line')
     .attr('id', 'bestfit');
 
+<<<<<<< HEAD
+d3.select('svg')
+    .append('line')
+    .attr('id', 'guide_lines');
+
+var lobfeq = d3.select("#lobfeq")
+    .attr("style","stroke:rgb(255,0,0);stroke-width:2");
+=======
 var lobfeq = d3.select("#lobfeq");
+var lobfreg = d3.select("#lobfreg");
+>>>>>>> 3b00551999b935455ee26d2871fa3b7e5b250415
+
+var color = d3.scale.category20();
+
 
 
 // --------------------------- DRAW AXES ---------------------------
@@ -134,7 +147,9 @@ svg.selectAll("circle")
     .attr("cy", function(d) {
 	return yScale( d["Average Life Expectancy"] )
     })
-    .attr("r", 5)
+    .attr("r", 10)
+    .attr("fill",function(d,i){return color(i);})
+
     .attr("state", function(d){
 	return d["State"];
     })
@@ -240,6 +255,11 @@ var drawLoBF = function (currentdata) {
 
     console.log(x1, x2);
 
+    x1 += x1/30;
+    x2 -= x2/30;
+
+    console.log(x1, x2);
+
     var xArray = [];
     for (var i = 0; i < csvdata.length; i++) {
 	xArray.push(csvdata[i][currentdata]);
@@ -255,13 +275,33 @@ var drawLoBF = function (currentdata) {
     y1 = coeff.m * x1 + coeff.b;
     y2 = coeff.m * x2 + coeff.b;
 
-    
+
+    /*
+    var img = body.append("img").attr("src", source).style("opacity", 0)
+    img.transition().duration(5000).ease(d3.easeLinear).style("opacity", 1)
+    */
+
+    d3.select('#bestfit')
+    .style("stroke", "rgb(255,0,0)")
+    .style('opacity', 0)
+    .style("stroke-width", 5)
+    .style("stroke", "grey")
+    .attr({'x1': xScale(x1), 'y1': yScale(y1), 'x2': xScale(x2), 'y2': yScale(y2)})
+    .transition()
+    .duration(1500)
+    .style('opacity', 1);    
+
+    /*
     d3.select('#bestfit')
     .attr({'x1': xScale(x1), 'y1': yScale(y1), 'x2': xScale(x2), 'y2': yScale(y2)})
     .attr({'stroke':'red'});
-
+    */
     lobfeq.text(function (){
 	    return "y = " + Number((coeff.m).toFixed(7)) + "x " + "+ " +  Number((coeff.b).toFixed(7));
+	});
+
+    lobfreg.text(function (){
+	    return "r = " + Number((coeff.r).toFixed(7));
 	});
     /*
 
@@ -297,9 +337,9 @@ var changeSet = function( newSet ) {
 	
 	// transition the x axis
 	svg.select(".xaxis")
-            .transition()
-			.duration(1500)
-            .call(xAxis);
+	.transition()
+	.duration(1500)
+	.call(xAxis);
 
 	// transition the points
 	svg.selectAll("circle")
@@ -308,10 +348,46 @@ var changeSet = function( newSet ) {
 			.attr("cx", function(o) {
 				return xScale( o[currentSet] )
 			});
-}
+	
+	// transition the lobf
+	drawLoBF(currentSet);
+
+};
 
 //var displayInfo = function(){
 //var circles = svg.selectAll("circle");
+
+// --------------------------- CHANGING ---------------------------
+var button1 = document.getElementById("button1");
+var button2 = document.getElementById("button2");
+var button3 = document.getElementById("button3");
+var button4 = document.getElementById("button4");
+var button5 = document.getElementById("button5");
+
+button1.addEventListener("click", function() {
+	changeSet("GDP");
+	console.log("1");
+    });
+
+button2.addEventListener("click", function() {
+	changeSet("Health Spending Per Capita");
+	console.log("2");
+    });
+
+button3.addEventListener("click", function() {
+	changeSet("Obama Approval Rating");
+	console.log("3");
+    });
+
+button4.addEventListener("click", function() {
+	changeSet("Unemployment Rate");
+	console.log("4");
+    });
+
+button5.addEventListener("click", function() {
+	changeSet("Wellbeing Index");
+	console.log("5");
+    });
 
 // --------------------------- HOVERING ---------------------------
 var displayData = function(circleData){
@@ -325,25 +401,52 @@ var displayData = function(circleData){
     display.innerHTML = valueName + ": " + value + " | " + "Life Expectancy: "+life;     
 }
 
-var forMouseOver = function(){
+var hoverDisplay = function(){
+
     //selects hover-overed element
-    svg.select(this).attr({
-	fill: "blue",
-	r: radius * 2
-    });
-    var circle = svg.select(this);
+    var circle = d3.select(this);
+
+    circle.transition()
+        .duration(800).style("opacity", 1)
+        .attr("r", 16).ease("elastic");
+
     var state = circle.attr("State");
+
     var life = circle.attr("life");
+
     //displayData();
+    console.log('hovered');
+    
+//working on this
+
+    d3.select('#guide_lines')
+    .attr('x1',circle.attr("cx"))
+    .attr('x2', circle.attr('cx'))
+    .attr('y1', circle.attr('cy'))
+    .attr('y2', circle.attr('cy')+50)//testing
+    .attr('transform', 'translate(0,' + (h - padding) + ')')
+    .style("stroke", circle.style("fill"))
+    .style('opacity', 0.2)
+    .style("stroke-width", 1);
+
+    d3.select()
+
 }
     
-
+var clearDisplay = function(){
+    console.log('mouseoff');
+}
     
 
 //Adding event listeners for hovering
 svg.selectAll("circle")
-    .on("onmouseover", hoverDisplay)
-    .on("onmouseout", clearDisplay);
+    .on("mouseover", hoverDisplay)
+    .on("mouseout", clearDisplay);
+
+
+
+
+        
 
 		
 

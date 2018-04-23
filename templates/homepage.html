@@ -54,47 +54,63 @@
 -->
 
 
-    <h1 id="graph_title" style="text-align: center">Life Expectancy vs. You Choose!</h1>
-    <div align="center">
-      <form id="Radio">
-	<p>Choose A Data Set (all data is for 2014):</p>
-	<div>
-	  <input type="radio" name="dataset" id="button1" value="GDP" checked>
-	  <label for="data1">State GDP</label>
-	  <br>
-	  <input type="radio" name="dataset" id="button2" value="HSpend">
-	  <label for="data1">State Health Spending Per Capita</label>
-	  <br>
-	  <input type="radio" name="dataset" id="button3" value="Approval">
-	  <label for="data1">Obama Approval Rating</label>
-	  <br>
-	  <input type="radio" name="dataset" id="button4" value="Unemploy">
-	  <label for="data1">State Unemployment Rate</label>
-	  <br>
-	  <input type="radio" name="dataset" id="button5" value="Wellbeing">
-	  <label for="data1">State Wellbeing Index</label>
-	  <br>
-	</div>
-    </div>
 
-
-    <div id = "lobfeq"> </div>
-
-
-
-    <div id="graph" transform="translate(200,-60)">
-    </div>
-
-  <p id="displayInfoTitle" style="text-align: center; font-size=24px;">
-  </p>
-    
-  <p id="displayInfo" style="text-align: center">
-  </p>
+  <h1 id="graph_title" style="text-align: center">Life Expectancy vs. You Choose!</h1>
+  <div class="modal-body row">
+    <div class="col-md-3">
+      <!-- Your first column here -->
+      <div align="center">
+	<br> <br> <br>
+	<form id="Radio">
+	  <p>Choose A Data Set (all data is for 2014):</p>
+	  <div>
+	    <input type="radio" name="dataset" id="button1" value="GDP" checked>
+	    <label for="data1">State GDP</label>
+	    <br>
+	    <input type="radio" name="dataset" id="button2" value="HSpend">
+	    <label for="data1">State Health Spending Per Capita</label>
+	    <br>
+	    <input type="radio" name="dataset" id="button3" value="Approval">
+	    <label for="data1">Obama Approval Rating</label>
+	    <br>
+	    <input type="radio" name="dataset" id="button4" value="Unemploy">
+	    <label for="data1">State Unemployment Rate</label>
+	    <br>
+	    <input type="radio" name="dataset" id="button5" value="Wellbeing">
+	    <label for="data1">State Wellbeing Index</label>
+	    <br>
+	  </div>
+	</form>
+      </div>
       
+      <br> <br> <br> <br>
+
+      <div align="center" id = "lobfeq"> </div>
+      <div align="center" id = "lobfreg"> </div>
+      
+      
+    </div>
+    <div class="col-md-9">
+      <!-- Your second column here -->
+      <div id="graph" transform="translate(200,-60)">
+      </div>
+      
+      <p id="displayInfoTitle" style="text-align: center; font-size=24px;">
+      </p>
+    
+      <p id="displayInfo" style="text-align: center">
+      </p>
+      
+
+    </div>
+    
+  
+
     
   <br>
   <div class="center">
     <script src="http://d3js.org/d3.v3.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <script type="text/javascript">      
              var csvdata = {{ data_var|tojson }}
     </script>
@@ -103,20 +119,6 @@
   </div>
 
   <br><br><br><br>
-
-
-	----------------------------<br>
-     random data^: for testing purpose only <br><br>
-    Next steps:<br><br>
-    	- extract and format actual data<br>
-    	- draw x, y axes <br>
-    	- rescale data and plot them on the graph<br>
-    	- add visual features (hovering, transition, info display on dots, line of best fit, etc.)<br>
-    	----------------------------<br><br>
-    	- add more datasets ==> need to rescale y (and x?) axis for each graph for appropriate units<br>
-    	----------------------------<br><br>
-    	- additional features (themes, size, dot shape, etc.)
-    
   </body>
 </html>
 
