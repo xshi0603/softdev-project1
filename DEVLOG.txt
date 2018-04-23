@@ -61,6 +61,9 @@ eq for lobf
 shiX -- 2018-04-22 22:41:29
 lobf transitioning
 
+shiX -- 2018-04-22 23:31:29
+added eq for lobf, split screen, added axes labels
+
 taoI -- 2018-04-22 23:10:00
 working on dot styling
 
