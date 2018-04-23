@@ -48,6 +48,17 @@ d3.select('svg')
     .append('line')
     .attr('id', 'guide_line2');
 
+d3.select('svg')
+    .append('text')
+    .attr('transform', 'translate(17, 350)rotate(-90)')
+    .attr({'id': 'yL', 'text-anchor': 'middle'})
+    .text('Life Expectancy(in years)');
+
+d3.select('svg')
+    .append('text')
+    .attr({'id': 'xLabel', 'x': 600, 'y': 690, 'text-anchor': 'middle'})
+    .text("State GDP Per Capita(in USD)");
+
 var lobfeq = d3.select("#lobfeq");
 var lobfreg = d3.select("#lobfreg");
 
@@ -351,6 +362,25 @@ var changeSet = function( newSet ) {
 	// transition the lobf
 	drawLoBF(currentSet);
 
+	var xLabel = document.getElementById("xLabel");
+	var label = "State " + currentSet + " (";
+	if (currentSet == "GDP") {
+	    label = "State GDP Per Capita(in USD)";
+	}
+	else if (currentSet == "Health Spending Per Capita") {
+	    label += "in USD)";
+	}
+	else if (currentSet == "Obama Approval Rating") {
+	    label += "%)";
+	}
+	else if (currentSet == "Unemployment Rate") {
+	    label += "%)";
+	}
+	else if (currentSet == "Wellbeing Index") {
+	    label += "Out of 100)";
+	}
+
+	xLabel.innerHTML = label;
 };
 
 //var displayInfo = function(){
@@ -367,7 +397,8 @@ var title = document.getElementById("graph_title");
 button1.addEventListener("click", function() {
     changeSet("GDP");
     console.log("1");
-    title.innerHTML = "Life Expectancy vs. State GDP";
+    title.innerHTML = "Life Expectancy vs. State GDP Per Capita";
+
     });
 
 button2.addEventListener("click", function() {
