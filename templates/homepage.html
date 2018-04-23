@@ -3,57 +3,23 @@
   <head>
     <title>Life Expectancy Rates</title>
     <meta charset="utf-8">
-	  <link rel='stylesheet' type = 'text/css' href='../static/css/home.css'/>
+	  <style>
+
+      #graph_title {
+        align-self: center;
+          color: purple;
+          font-size: 30pt;
+          font-weight: 200;
+          font-family: Garamond;
+          font-variant: small-caps;
+      }
+    </style>
   </head>
 
 
+
   <body style="background-color: white">
-
-  <!--<div class="navbar">
-
-  <img class="logo" src="lifelogo.png">
-
-  <div class="dropdown">
-    <button class="dropbtn">Data Set</button>
-    <div class="dropdown-content">
-      <a href="#">Unemployment(2014)</a>
-      <a href="#">GDP (2014)</a>
-      <a href="#">Health Spending (2014)</a>
-      <a href="#">Per Capita Binge Drinking (2016)</a>
-    </div>
-  </div>
-  -->
-  <!--<div class="dropdown">
-    <button class="dropbtn">Theme</button>
-    <div class="dropdown-content">
-      <a href="#">Theme 1</a>
-      <a href="#">Theme 2</a>
-      <a href="#">Theme 3</a>
-    </div>
-  </div>
-
-  <div class="dropdown">
-    <button class="dropbtn">Size</button>
-    <div class="dropdown-content">
-      <a href="#">Size 1</a>
-      <a href="#">Size 2</a>
-      <a href="#">Size 3</a>
-    </div>
-  </div>
-
-  <div class="dropdown">
-    <button class="dropbtn">Radius Scale</button>
-    <div class="dropdown-content">
-      <a href="#">Linear</a>
-      <a href="#">Log</a>
-    </div>
-  </div>
-
-
-</div>
--->
-
-
+  <br>
 
 
   <h1 id="graph_title" style="text-align: center">Life Expectancy vs. State GDP Per Capita</h1>
@@ -65,8 +31,8 @@
 	<br> <br> <br>
 	<form id="Radio">
 	  <p style="font-size: 26px"><b>Choose A Data Set:</b></p>
-	  <p style="font-size: 18px">All Data is from 2014</p>
-	  <div style="font-size: 24px">
+	  <p style="font-size: 18px">(All Data is from 2014)</p>
+	  <div style="font-size: 18px">
 	    <input type="radio" name="dataset" id="button1" value="GDP" checked>
 	    <label for="data1">State GDP Per Capita</label>
 	    <br>
@@ -88,8 +54,8 @@
       
       <br> <br> <br> <br>
 
-      <div style="font-size: 20px">
-      <p align="center">Equation of Line of Best Fit</p>
+      <div style="font-size: 18px">
+      <b><p align="center">Equation of Line of Best Fit:</p></b>
       <div align="center" id = "lobfeq"> </div>
       <div align="center" id = "lobfreg"> </div>
       </div>

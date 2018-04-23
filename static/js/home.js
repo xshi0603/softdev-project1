@@ -25,8 +25,8 @@ console.log( csvdata );
 var currentSet = "GDP";
     
 // --------------------------- SET INITIAL VARIABLES ---------------------------
-var w = 1200;
-var h = 700;
+var w = 950;
+var h = 605;
 var padding = 50;
 
 
@@ -40,7 +40,6 @@ d3.select('svg')
     .attr('id', 'bestfit');
 
 
-
 d3.select('svg')
     .append('text')
     .attr('transform', 'translate(17, 350)rotate(-90)')
@@ -49,7 +48,7 @@ d3.select('svg')
 
 d3.select('svg')
     .append('text')
-    .attr({'id': 'xLabel', 'x': 600, 'y': 690, 'text-anchor': 'middle'})
+    .attr({'id': 'xLabel', 'x': 600, 'y': 600, 'text-anchor': 'middle'})
     .text("State GDP Per Capita(in USD)");
 
 var lobfeq = d3.select("#lobfeq");
@@ -471,8 +470,8 @@ var displayData = function(){
         .append('text')
         .attr('id', 'dot_info')
         .attr('x', 70)
-        .attr('y',140)
-        .style({'font-size': '60px', 'fill': target.getAttribute('fill')})
+        .attr('y',100)
+        .style({'font-size': '60px', 'font-weight': 'bold','fill': target.getAttribute('fill')})
         .text(target.getAttribute('state'))
         .transition()
         .duration(20);
@@ -482,8 +481,8 @@ var displayData = function(){
         .append('text')
         .attr('id', 'dot_info')
         .attr('x', 70)
-        .attr('y',180)
-        .style({'font-size': '20px', 'fill': target.getAttribute('fill')})
+        .attr('y',140)
+        .style({'font-size': '20px', 'fill':'grey'})
         .text(xLabel.innerHTML)
         .transition()
         .duration(20);
@@ -492,8 +491,8 @@ var displayData = function(){
         .append('text')
         .attr('id', 'dot_info')
         .attr('x', 70)
-        .attr('y',200)
-        .style({'font-size': '20px', 'fill': target.getAttribute('fill')})
+        .attr('y',160)
+        .style({'font-size': '20px', 'fill': 'grey'})
         .text(target.getAttribute(currentSet))
         .transition()
         .duration(20);
@@ -502,8 +501,8 @@ var displayData = function(){
         .append('text')
         .attr('id', 'dot_info')
         .attr('x', 70)
-        .attr('y',240)
-        .style({'font-size': '20px', 'fill': target.getAttribute('fill')})
+        .attr('y',200)
+        .style({'font-size': '20px', 'font-weight': 'bold','fill': 'grey'})
         .text('Life Expectancy(in years)')
         .transition()
         .duration(20);
@@ -512,8 +511,8 @@ var displayData = function(){
         .append('text')
         .attr('id', 'dot_info')
         .attr('x', 70)
-        .attr('y',260)
-        .style({'font-size': '20px', 'fill': target.getAttribute('fill')})
+        .attr('y',220)
+        .style({'font-size': '20px', 'fill': 'grey'})
         .text(target.getAttribute('life'))
         .transition()
         .duration(20);
