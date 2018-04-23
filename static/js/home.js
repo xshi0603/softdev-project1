@@ -297,9 +297,9 @@ var changeSet = function( newSet ) {
 	
 	// transition the x axis
 	svg.select(".xaxis")
-            .transition()
-			.duration(1500)
-            .call(xAxis);
+	.transition()
+	.duration(1500)
+	.call(xAxis);
 
 	// transition the points
 	svg.selectAll("circle")
@@ -308,10 +308,45 @@ var changeSet = function( newSet ) {
 			.attr("cx", function(o) {
 				return xScale( o[currentSet] )
 			});
-}
+	
+	// transition the lobf
+
+};
 
 //var displayInfo = function(){
 //var circles = svg.selectAll("circle");
+
+// --------------------------- CHANGING ---------------------------
+var button1 = document.getElementById("button1");
+var button2 = document.getElementById("button2");
+var button3 = document.getElementById("button3");
+var button4 = document.getElementById("button4");
+var button5 = document.getElementById("button5");
+
+button1.addEventListener("click", function() {
+	changeSet("GDP");
+	console.log("1");
+    });
+
+button2.addEventListener("click", function() {
+	changeSet("Health Spending Per Capita");
+	console.log("2");
+    });
+
+button3.addEventListener("click", function() {
+	changeSet("Obama Approval Rating");
+	console.log("3");
+    });
+
+button4.addEventListener("click", function() {
+	changeSet("Unemployment Rate");
+	console.log("4");
+    });
+
+button5.addEventListener("click", function() {
+	changeSet("Wellbeing Index");
+	console.log("5");
+    });
 
 // --------------------------- HOVERING ---------------------------
 var displayData = function(circleData){
