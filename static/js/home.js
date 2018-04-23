@@ -40,12 +40,17 @@ d3.select('svg')
     .append('line')
     .attr('id', 'bestfit');
 
+<<<<<<< HEAD
 d3.select('svg')
     .append('line')
     .attr('id', 'guide_lines');
 
 var lobfeq = d3.select("#lobfeq")
     .attr("style","stroke:rgb(255,0,0);stroke-width:2");
+=======
+var lobfeq = d3.select("#lobfeq");
+var lobfreg = d3.select("#lobfreg");
+>>>>>>> 3b00551999b935455ee26d2871fa3b7e5b250415
 
 var color = d3.scale.category20();
 
@@ -250,6 +255,11 @@ var drawLoBF = function (currentdata) {
 
     console.log(x1, x2);
 
+    x1 += x1/30;
+    x2 -= x2/30;
+
+    console.log(x1, x2);
+
     var xArray = [];
     for (var i = 0; i < csvdata.length; i++) {
 	xArray.push(csvdata[i][currentdata]);
@@ -288,6 +298,10 @@ var drawLoBF = function (currentdata) {
     */
     lobfeq.text(function (){
 	    return "y = " + Number((coeff.m).toFixed(7)) + "x " + "+ " +  Number((coeff.b).toFixed(7));
+	});
+
+    lobfreg.text(function (){
+	    return "r = " + Number((coeff.r).toFixed(7));
 	});
     /*
 
