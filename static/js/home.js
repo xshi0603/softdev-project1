@@ -471,7 +471,8 @@ var clearDisplay = function(){
             .remove();
         }
 
-var displayData = function(){
+var displayData = function(event){
+    event = event || window.event;
     var target = event.target;
     d3.select('svg')
         .append('text')
@@ -528,7 +529,8 @@ var displayData = function(){
 
 
 
-var drawGuideLines = function(d){
+var drawGuideLines = function(event){
+    event = event || window.event;
     var circle = d3.select(this);
     var target = event.target;
     console.log('guidelinedrawn');
