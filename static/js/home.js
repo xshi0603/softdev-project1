@@ -54,7 +54,7 @@ d3.select('svg')
 d3.select('svg')
     .append('text')
     .attr({'id': 'xLabel', 'x': 600, 'y': 690, 'text-anchor': 'middle'})
-    .text("State GDP(in $)");
+    .text("State GDP Per Capita(in USD)");
 
 var lobfeq = d3.select("#lobfeq");
 var lobfreg = d3.select("#lobfreg");
@@ -359,16 +359,13 @@ var changeSet = function( newSet ) {
 	// transition the lobf
 	drawLoBF(currentSet);
 
-	var title = document.getElementById("graph_title");
-	title.innerHTML = "Life Expectancy vs. State " + currentSet;
-
 	var xLabel = document.getElementById("xLabel");
-	var label = "State " + currentSet + " (in ";
+	var label = "State " + currentSet + " (";
 	if (currentSet == "GDP") {
-	    label += "$)";
+	    label = "State GDP Per Capita(in USD)";
 	}
 	else if (currentSet == "Health Spending Per Capita") {
-	    label += "$)";
+	    label += "in USD)";
 	}
 	else if (currentSet == "Obama Approval Rating") {
 	    label += "%)";
@@ -377,7 +374,7 @@ var changeSet = function( newSet ) {
 	    label += "%)";
 	}
 	else if (currentSet == "Wellbeing Index") {
-	    label += "idk)";
+	    label += "Out of 100)";
 	}
 
 	xLabel.innerHTML = label;
@@ -397,26 +394,31 @@ var title = document.getElementById("graph_title");
 button1.addEventListener("click", function() {
     changeSet("GDP");
     console.log("1");
+    title.innerHTML = "Life Expectancy vs. State GDP Per Capita";
     });
 
 button2.addEventListener("click", function() {
     changeSet("Health Spending Per Capita");
     console.log("2");
+    title.innerHTML = "Life Expectancy vs. State Health Spending Per Capita";
     });
 
 button3.addEventListener("click", function() {
     changeSet("Obama Approval Rating");
     console.log("3");
+    title.innerHTML = "Life Expectancy vs. State Obama Approval Rating";
     });
 
 button4.addEventListener("click", function() {
     changeSet("Unemployment Rate");
     console.log("4");
+    title.innerHTML = "Life Expectancy vs. State Unemployment Rate";
     });
 
 button5.addEventListener("click", function() {
     changeSet("Wellbeing Index");
     console.log("5");
+    title.innerHTML = "Life Expectancy vs. State Overall Wellbeing";
     });
 
 // --------------------------- HOVERING ---------------------------
