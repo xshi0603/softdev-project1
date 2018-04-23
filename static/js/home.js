@@ -23,6 +23,7 @@ processData( csvdata );
 console.log( csvdata );
 
 var currentSet = "GDP";
+var currentAttr = "GDP";
     
 // --------------------------- SET INITIAL VARIABLES ---------------------------
 var w = 950;
@@ -42,13 +43,13 @@ d3.select('svg')
 
 d3.select('svg')
     .append('text')
-    .attr('transform', 'translate(17, 350)rotate(-90)')
+    .attr('transform', 'translate(12, 300)rotate(-90)')
     .attr({'id': 'yL', 'text-anchor': 'middle'})
     .text('Life Expectancy(in years)');
 
 d3.select('svg')
     .append('text')
-    .attr({'id': 'xLabel', 'x': 600, 'y': 600, 'text-anchor': 'middle'})
+    .attr({'id': 'xLabel', 'x': 500, 'y': 600, 'text-anchor': 'middle'})
     .text("State GDP Per Capita(in USD)");
 
 var lobfeq = d3.select("#lobfeq");
@@ -380,31 +381,37 @@ var button5 = document.getElementById("button5");
 var title = document.getElementById("graph_title");
 
 button1.addEventListener("click", function() {
+
     changeSet("GDP");
+    currentAttr = "GDP";
     console.log("1");
     title.innerHTML = "Life Expectancy vs. State GDP Per Capita";
 
     });
 
 button2.addEventListener("click", function() {
+    currentAttr = "health";
     changeSet("Health Spending Per Capita");
     console.log("2");
     title.innerHTML = "Life Expectancy vs. State Health Spending Per Capita";
     });
 
 button3.addEventListener("click", function() {
+    currentAttr = "approval";
     changeSet("Obama Approval Rating");
     console.log("3");
     title.innerHTML = "Life Expectancy vs. State Obama Approval Rating";
     });
 
 button4.addEventListener("click", function() {
+    currentAttr = "unemploy";
     changeSet("Unemployment Rate");
     console.log("4");
     title.innerHTML = "Life Expectancy vs. State Unemployment Rate";
     });
 
 button5.addEventListener("click", function() {
+    currentAttr = "wellbeing";
     changeSet("Wellbeing Index");
     console.log("5");
     title.innerHTML = "Life Expectancy vs. State Overall Wellbeing";
@@ -482,7 +489,7 @@ var displayData = function(){
         .attr('id', 'dot_info')
         .attr('x', 70)
         .attr('y',140)
-        .style({'font-size': '20px', 'fill':'grey'})
+        .style({'font-size': '20px', 'font-weight': 'bold','fill':'grey'})
         .text(xLabel.innerHTML)
         .transition()
         .duration(20);
@@ -493,7 +500,7 @@ var displayData = function(){
         .attr('x', 70)
         .attr('y',160)
         .style({'font-size': '20px', 'fill': 'grey'})
-        .text(target.getAttribute(currentSet))
+        .text(target.getAttribute(currentAttr))
         .transition()
         .duration(20);
 
