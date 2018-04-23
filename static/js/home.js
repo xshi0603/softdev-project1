@@ -242,6 +242,11 @@ var drawLoBF = function (currentdata) {
 
     console.log(x1, x2);
 
+    x1 += x1/30;
+    x2 -= x2/30;
+
+    console.log(x1, x2);
+
     var xArray = [];
     for (var i = 0; i < csvdata.length; i++) {
 	xArray.push(csvdata[i][currentdata]);
