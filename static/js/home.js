@@ -29,7 +29,7 @@ var w = 1200;
 var h = 700;
 var padding = 50;
 
-var dataset = [[5, 20], [480, 90], [250, 50], [100, 33], [330, 95],[410, 12], [475, 44], [25, 67], [85, 21], [220, 88] ];
+//var dataset = [[5, 20], [480, 90], [250, 50], [100, 33], [330, 95],[410, 12], [475, 44], [25, 67], [85, 21], [220, 88] ];
 
 var svg = d3.select("#graph")
 	.append("svg")
@@ -43,7 +43,10 @@ d3.select('svg')
 
 d3.select('svg')
     .append('line')
-    .attr('id', 'guide_lines');
+    .attr('id', 'guide_line1');
+d3.select('svg')
+    .append('line')
+    .attr('id', 'guide_line2');
 
 var lobfeq = d3.select("#lobfeq");
 var lobfreg = d3.select("#lobfreg");
@@ -405,32 +408,49 @@ var hoverDisplay = function(){
     circle.transition()
         .duration(800).style("opacity", 1)
         .attr("r", 16).ease("elastic");
-
     var state = circle.attr("State");
-
     var life = circle.attr("life");
-
     //displayData();
     console.log('hovered');
-    
-//working on this
-
-    d3.select('#guide_lines')
-    .attr('x1',circle.attr("cx"))
-    .attr('x2', circle.attr('cx'))
-    .attr('y1', circle.attr('cy'))
-    .attr('y2', circle.attr('cy')+50)//testing
-    .attr('transform', 'translate(0,' + (h - padding) + ')')
-    .style("stroke", circle.style("fill"))
-    .style('opacity', 0.2)
-    .style("stroke-width", 1);
-
-    d3.select()
-
+    drawGuideLines();
 }
     
 var clearDisplay = function(){
     console.log('mouseoff');
+    //working on this .....
+}
+
+var drawGuideLines = function(d){
+
+    var circle = d3.select(this);
+    var target = event.target;
+    console.log('guidelinedrawn');
+    console.log(target);
+
+    d3.select('#guide_line1')
+    .attr('x1',target.getAttribute('cx'))
+    .attr('x2',target.getAttribute('cx'))
+    .attr('y1',target.getAttribute('cy'))
+    .attr('y2',650)
+    .style("stroke-width", 1)
+    .style("stroke", target.getAttribute('fill'))
+    .transition()
+    .duration(1500)
+    .style('opacity', 1); 
+
+    d3.select('#guide_line2')
+    .attr('x1',target.getAttribute('cx'))
+    .attr('x2',50)
+    .attr('y1',target.getAttribute('cy'))
+    .attr('y2',target.getAttribute('cy'))
+    .style("stroke-width", 1)
+    .style("stroke", target.getAttribute('fill'))
+    .transition()
+    .duration(1500)
+    .style('opacity', 1); 
+
+
+
 }
     
 
