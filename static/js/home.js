@@ -40,7 +40,9 @@ d3.select('svg')
     .append('line')
     .attr('id', 'bestfit');
 
-var lobfeq = d3.select("#lobfeq");
+var lobfeq = d3.select("#lobfeq")
+    .attr("style","stroke:rgb(255,0,0);stroke-width:2");
+
 
 
 // --------------------------- DRAW AXES ---------------------------
@@ -255,11 +257,25 @@ var drawLoBF = function (currentdata) {
     y1 = coeff.m * x1 + coeff.b;
     y2 = coeff.m * x2 + coeff.b;
 
-    
+
+    /*
+    var img = body.append("img").attr("src", source).style("opacity", 0)
+    img.transition().duration(5000).ease(d3.easeLinear).style("opacity", 1)
+    */
+
+    d3.select('#bestfit')
+    .style("stroke", "rgb(255,0,0)")
+    .style('opacity', 0)
+    .attr({'x1': xScale(x1), 'y1': yScale(y1), 'x2': xScale(x2), 'y2': yScale(y2)})
+    .transition()
+    .duration(1500)
+    .style('opacity', 1);    
+
+    /*
     d3.select('#bestfit')
     .attr({'x1': xScale(x1), 'y1': yScale(y1), 'x2': xScale(x2), 'y2': yScale(y2)})
     .attr({'stroke':'red'});
-
+    */
     lobfeq.text(function (){
 	    return "y = " + Number((coeff.m).toFixed(7)) + "x " + "+ " +  Number((coeff.b).toFixed(7));
 	});
@@ -310,6 +326,7 @@ var changeSet = function( newSet ) {
 			});
 	
 	// transition the lobf
+	drawLoBF(currentSet);
 
 };
 
