@@ -71,6 +71,10 @@ How does life expectancy affected by ...?
   
   They should also be considering what other factors affect life expectancy, especially because things like Obama Approval Rating can seem have an impact.
 
+## Firefox?
+
+The hovering function does not work on Firefox but if you use a different web browser such as Chrome, it works as intended.
+
 ## Mockup
 
 https://docs.google.com/document/d/1X4G9KdUbTkOpNcfzO5srYEkUHF5MRGSzcfgqH7lW6ns/edit?usp=sharing
